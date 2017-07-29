@@ -1,4 +1,3 @@
-# itp
-iTransferProtocol
+# iTP (iTransferProtocol)
 
 Dependencies: LibStub
