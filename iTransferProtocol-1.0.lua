@@ -103,8 +103,7 @@
     PREFIX is the calling addon's registered prefix (filled with
       trailing spaces to be 8 characters long).
     M_ID is the current message id. Each message that is put into the
-      output queue is assigned a consecutive id between 0x0000 and
-      0xffff.
+      output queue is assigned a consecutive id between 0000 and ffff.
     PCNT is the number of parts this message was split into.
     PNUM is the current part's number.
     PMSG is the currently transmitted part of the message.
