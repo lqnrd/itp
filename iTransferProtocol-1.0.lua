@@ -9,16 +9,20 @@
 1.1 Functions
 
   local iTPCallback = iTP:RegisterPrefix(prefix)
-   
+  
     Registers a new addon prefix like you would with Blizzard's
     RegisterAddonMessagePrefix(prefix). Result table will be used to get
     events.
-   
+  
+  local isRegistered = iTP:IsPrefixRegistered(prefix)
+  
+    Returns whether the given prefix is already registered.
+  
   local msgid = iTP:SendAddonMessage(prefix, msg, channel [, target])
-   
+  
     Works just like Blizzard's SendAddonMessage. Return value can be
     used to keep track of specific messages.
-   
+  
   iTP:ClearPendingMessages(prefix)
   
     Clear output queue for that prefix, aborting current transfers and
@@ -175,6 +179,14 @@ function iTP:RegisterPrefix(prefix)
   table.insert(prefixesList, self.prefixes[prefix])
   
   return self.prefixes[prefix]
+end
+
+function iTP:IsPrefixRegistered(prefix)
+  prefix = getPaddedPrefix(prefix)
+  if self.prefixes[prefix] then
+    return true
+  end
+  return false
 end
 
 function iTP:SendAddonMessage(prefix, message, channel, whispertarget)
